@@ -1,0 +1,35 @@
+// Considere que você digitou o seu nome para o programa abaixo. O que será impresso?
+// Indique o que você digitou. Justifique sua resposta. (não vale ponto para apresentação)
+
+#include <stdio.h>
+#include <string.h>
+#define MAX 50
+
+int main (void) {
+char texto[MAX +2], temp ;
+int tam , i;
+gets( texto );
+// digita 'Paula'
+
+tam = strlen ( texto );
+// tam = 5
+
+for (i = 0; i < tam ; i ++) {
+temp = texto[i];
+//  temp = P
+texto[i] = texto[ tam -1 - i ];
+//  texto[4] = texto[0] = a
+texto[strlen(texto) -1 - i] = temp;
+//  texto[0] = P
+}
+
+//  i= 0 -> aaulP
+//  i= 1 -> aluaP
+//  i= 2 -> aluaP
+//  i= 3 -> aaulP
+//  i= 4 -> Paula
+
+puts ( texto );
+//  imprime "Paula"
+return 0;
+}
